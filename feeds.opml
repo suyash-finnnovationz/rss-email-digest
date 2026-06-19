@@ -5,9 +5,8 @@
     <outline text="Economic Times" type="rss" xmlUrl="https://economictimes.indiatimes.com/rssfeedsdefault.cms"/>
     <outline text="ET Markets" type="rss" xmlUrl="https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms"/>
     <outline text="ET Industry" type="rss" xmlUrl="https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms"/>
-    <outline text="PIB" type="rss" xmlUrl="https://pib.gov.in/RssMain.aspx"/>
-    <outline text="RBI" type="rss" xmlUrl="https://www.rbi.org.in/RSS/RSSFeed.aspx?Id=2"/>
-    <outline text="Business Standard" type="rss" xmlUrl="https://www.business-standard.com/rss/home_page_top_stories.rss"/>
     <outline text="Mint" type="rss" xmlUrl="https://www.livemint.com/rss/news"/>
+    <outline text="MoneyControl" type="rss" xmlUrl="https://www.moneycontrol.com/rss/latestnews.xml"/>
+    <outline text="NDTV Business" type="rss" xmlUrl="https://feeds.feedburner.com/ndtvprofit-latest"/>
   </body>
 </opml>
