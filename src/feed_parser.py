@@ -48,6 +48,22 @@ def parse_opml(opml_path: Path) -> List[Dict[str, str]]:
 
 def is_from_yesterday(date_value: Union[datetime, time.struct_time, None]) -> bool:
     """
+    Check if a date is from the last 1 hour (UTC).
+    """
+    if date_value is None:
+        return False
+
+    if isinstance(date_value, time.struct_time):
+        date_value = datetime(*date_value[:6], tzinfo=timezone.utc)
+
+    if date_value.tzinfo is None:
+        date_value = date_value.replace(tzinfo=timezone.utc)
+
+    now = datetime.now(timezone.utc)
+    one_hour_ago = now - timedelta(hours=1)
+
+    return date_value >= one_hour_ago
+    """
     Check if a date is from yesterday (UTC calendar date).
 
     Args:
