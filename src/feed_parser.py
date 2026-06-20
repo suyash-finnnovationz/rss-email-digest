@@ -107,7 +107,7 @@ async def fetch_feed(feed_name: str, feed_url: str, timeout: int = 15, html_url:
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get(feed_url, timeout=aiohttp.ClientTimeout(total=timeout)) as response:
-                content = await response.text()
+                content = await response.text(encoding='latin-1')
 
         # Parse feed content
         feed = feedparser.parse(content)
