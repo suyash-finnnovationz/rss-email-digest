@@ -12,6 +12,7 @@
     <outline text="RBI Notifications" type="rss" xmlUrl="https://www.rbi.org.in/notifications_rss.xml"/>
     <outline text="PIB" type="rss" xmlUrl="https://pib.gov.in/RssMain.aspx?ModID=6&amp;Lang=1"/>
     <outline text="Zerodha Pulse" type="rss" xmlUrl="https://pulse.zerodha.com/feed.php"/>
-    <outline text="TradingView News" type="rss" xmlUrl="https://news.tradingview.com/rss/"/>
+    <outline text="Business Standard Economy" type="rss" xmlUrl="https://www.business-standard.com/rss/economy-policy.rss"/>
+    <outline text="Business Standard Markets" type="rss" xmlUrl="https://www.business-standard.com/rss/markets.rss"/>
   </body>
 </opml>
