@@ -19,8 +19,14 @@ def parse_opml(opml_path: Path) -> List[Dict[str, str]]:
     if not opml_path.exists():
         raise FileNotFoundError(f"OPML file not found: {opml_path}")
 
-    tree = ET.parse(opml_path)
-    root = tree.getroot()
+    # Read raw text and fix common XML issues before parsing
+    raw = opml_path.read_text(encoding='utf-8')
+    # Fix unescaped & that aren't already &amp;
+    import re as _re
+    raw = _re.sub(r'&(?!amp;|lt;|gt;|quot;|apos;)', '&amp;', raw)
+
+    import io
+    root = ET.parse(io.StringIO(raw)).getroot()
 
     feeds = []
     for outline in root.findall(".//outline[@xmlUrl]"):
