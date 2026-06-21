@@ -107,14 +107,16 @@ async def fetch_feed(feed_name: str, feed_url: str, timeout: int = 15, html_url:
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get(feed_url, timeout=aiohttp.ClientTimeout(total=timeout)) as response:
-                content = await response.read()
-# Try different encodings
+                raw_bytes = await response.read()
+content = None
 for encoding in ['utf-8', 'latin-1', 'windows-1252', 'iso-8859-1']:
     try:
-        content = content.decode(encoding)
+        content = raw_bytes.decode(encoding)
         break
-    except (UnicodeDecodeError, AttributeError):
+    except UnicodeDecodeError:
         continue
+if content is None:
+    content = raw_bytes.decode('utf-8', errors='replace')
 
         # Parse feed content
         feed = feedparser.parse(content)
