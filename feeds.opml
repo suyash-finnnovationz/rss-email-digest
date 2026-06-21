@@ -8,7 +8,7 @@
     <outline text="Mint" type="rss" xmlUrl="https://www.livemint.com/rss/news"/>
     <outline text="RBI Press Releases" type="rss" xmlUrl="https://www.rbi.org.in/pressreleases_rss.xml"/>
     <outline text="RBI Notifications" type="rss" xmlUrl="https://www.rbi.org.in/notifications_rss.xml"/>
-    <outline text="PIB" type="rss" xmlUrl="https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3"/>
+    <outline text="PIB" type="rss" xmlUrl="xmlUrl="https://pib.gov.in/RssMain.aspx?ModId=6&amp;Lang=1&amp;Regid=3""/>
     <outline text="Zerodha Pulse" type="rss" xmlUrl="https://pulse.zerodha.com/feed.php"/>
     <outline text="Business Standard latest news" type="rss" xmlUrl="https://www.business-standard.com/rss/latest.rss"/>
     <outline text="Business Standard Markets" type="rss" xmlUrl="https://www.business-standard.com/rss/markets-106.rss"/>
