@@ -107,19 +107,26 @@ async def fetch_feed(feed_name: str, feed_url: str, timeout: int = 15, html_url:
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get(feed_url, timeout=aiohttp.ClientTimeout(total=timeout)) as response:
-                content = await response.text(encoding='latin-1')
+                content = await response.read()
+# Try different encodings
+for encoding in ['utf-8', 'latin-1', 'windows-1252', 'iso-8859-1']:
+    try:
+        content = content.decode(encoding)
+        break
+    except (UnicodeDecodeError, AttributeError):
+        continue
 
         # Parse feed content
         feed = feedparser.parse(content)
 
-        if feed.bozo:  # feedparser sets bozo=1 for malformed feeds
-            return {
-                "name": feed_name,
-                "status": "error",
-                "posts": [],
-                "error_message": f"Invalid feed format: {feed.bozo_exception}",
-                "site_url": html_url
-            }
+        if feed.bozo and not feed.entries:
+    return {
+        "name": feed_name,
+        "status": "error",
+        "posts": [],
+        "error_message": f"Invalid feed format: {feed.bozo_exception}",
+        "site_url": html_url
+    }
 
         # Extract site URL from feed metadata
         site_url = feed.feed.get("link", "") if hasattr(feed, "feed") else ""
