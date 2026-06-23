@@ -2,8 +2,8 @@ name: Daily RSS Digest
 
 on:
   schedule:
-    - cron: '0 * * * *'
-    - cron: '30 * * * *'
+  # Runs once a day at 8am IST (2:30am UTC)
+  - cron: '30 2 * * *'
   workflow_dispatch:  # Allow manual triggering
 
 jobs:
