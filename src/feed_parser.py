@@ -40,7 +40,7 @@ def parse_opml(opml_path: Path) -> List[Dict[str, str]]:
 
 
 def is_recent(date_value: Union[datetime, time.struct_time, None]) -> bool:
-    """Check if a date is from the last 1 hour (UTC)."""
+    """Check if a date is from the last 24 hours (UTC)."""
     if date_value is None:
         return False
 
@@ -51,9 +51,9 @@ def is_recent(date_value: Union[datetime, time.struct_time, None]) -> bool:
         date_value = date_value.replace(tzinfo=timezone.utc)
 
     now = datetime.now(timezone.utc)
-    one_hour_ago = now - timedelta(hours=1)
+    yesterday = now - timedelta(hours=24)
 
-    return date_value >= one_hour_ago
+    return date_value >= yesterday
 
 
 async def fetch_feed(feed_name: str, feed_url: str, timeout: int = 15, html_url: str = "") -> Dict:
